@@ -31,7 +31,7 @@ const CGFloat kCircleTime = 1.5;
         _colorArray = @[[UIColor colorWithRed:66 / 255.0 green:138 / 255.0 blue:223 / 255.0 alpha:1.0],[UIColor colorWithRed:79 / 255.0 green:225 / 255.0 blue:177 / 255.0 alpha:1.0],[UIColor colorWithRed:250 / 255.0 green:255 / 255.0 blue:0 / 255.0 alpha:1.0],[UIColor colorWithRed:247 / 255.0 green:58 / 255.0 blue:121 / 255.0 alpha:1.0]].copy;
         _ratioInChartArray = @[].mutableCopy;
         _descriptionLabelCenterArray = @[].mutableCopy;
-        for ( int i = 0; i < chooseRatioArray.count - 1; i++ ) {
+        for ( int i = 0; i < chooseRatioArray.count ; i++ ) {
             NSNumber *ratioInChart = @([chooseRatioArray[i] floatValue] / 100.0);
             [_ratioInChartArray addObject:ratioInChart];
         }
@@ -42,7 +42,7 @@ const CGFloat kCircleTime = 1.5;
 - (void)drawRect:(CGRect)rect{
     CGFloat startAngel = M_PI_2*3;
     _center = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
-    for ( int i = 0; i < _ratioInChartArray.count + 1; i++ ) {
+    for ( int i = 0; i < _ratioInChartArray.count; i++ ) {
         UIBezierPath *path = [UIBezierPath bezierPath];
         UIColor *c = _colorArray[i];
         if ( i < _ratioInChartArray.count ) {
@@ -55,14 +55,6 @@ const CGFloat kCircleTime = 1.5;
             [_descriptionLabelCenterArray addObject:[NSValue valueWithCGPoint:CGPointMake(x, y)]];
             
             startAngel += ang * M_PI * 2;
-        }
-        else{
-            [path addArcWithCenter:_center radius:kRadius startAngle:startAngel endAngle:M_PI_2*3 clockwise:YES];
-            
-            CGFloat angle = startAngel + ( M_PI_2 * 3 + M_PI * 2 - startAngel) / 2;
-            CGFloat x = _center.x + (kRadius * 6 / 7) * cos(angle);
-            CGFloat y = _center.y + (kRadius * 6 / 7) * sin(angle);
-            [_descriptionLabelCenterArray addObject:[NSValue valueWithCGPoint:CGPointMake(x, y)]];
         }
         path.lineWidth = 5;
         path.lineCapStyle = kCGLineCapButt;

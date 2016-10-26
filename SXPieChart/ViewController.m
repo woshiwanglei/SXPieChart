@@ -104,7 +104,7 @@
     for ( int i = 0; i < _dataArray.count; i++ ) {
         SXEvaluatingAnalyseBottomData *data = _dataArray[ i ];
         SXEvaluateAnalyseButtomViewItem *itemView = [[[NSBundle mainBundle] loadNibNamed:@"SXEvaluateAnalyseButtomViewItem" owner:self options:nil] lastObject];
-        itemView.openImageView.frame = CGRectMake(Screen_Width - 30, 10, 20, 20);
+        itemView.openImageView.frame = CGRectMake(Screen_Width - 23, 10, 13, 13);
         itemView.topLine.frame = CGRectMake(0, 0, Screen_Width - 10, 1);
         itemView.numOfPeopleLabel.frame = CGRectMake(10, 10, 200, 20);
         itemView.numOfPeopleLabel.text = [NSString stringWithFormat:@"%@:%@人",optionArray[i],data.num];

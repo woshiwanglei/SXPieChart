@@ -71,7 +71,7 @@
                 <outlet property="timeLabel" destination="2DS-Bd-bvu" id="j3V-xA-Gep"/>
                 <outlet property="titleLabel" destination="zjy-ve-3Ey" id="uDa-gv-uNS"/>
             </connections>
-            <point key="canvasLocation" x="-395" y="-167"/>
+            <point key="canvasLocation" x="-33" y="-163"/>
         </view>
     </objects>
     <resources>
